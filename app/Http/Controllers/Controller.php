@@ -9,5 +9,12 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class Controller extends BaseController
 {
+    /**
+     * HTTP status codes
+     */
+    const HTTP_STATUS_CODE_OK = 200;
+    const HTTP_STATUS_CODE_CREATED = 201;
+    const HTTP_STATUS_CODE_NO_CONTENT = 204;
+
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 }
