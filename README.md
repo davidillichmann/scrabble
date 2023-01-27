@@ -10,31 +10,22 @@ Scrubble challenge for Elder Studios
 Download repository.
 Run 
 
-    composer install
-
-Copy `.env.example` and create `.env` file. 
-Set app variables in the `.env` file:
-
-    DB_DATABASE= your_db_name
-    DB_USERNAME= db_username
-    DB_PASSWORD= db_password
-
-You can use artisan command for app key generation.
-
-    php artisan key:generate
+    docker-compose up
+    docker-compose exec php composer install
+    docker-compose exec php php artisan key:generate
     
 Run 
 
-    php artisan migrate
+    docker-compose exec php php artisan migrate
     
 *If you are interested run database seeding command*
 
-    php artisan db:seed
+    docker-compose exec php php artisan db:seed
     
 
-This command serves the app
+App will be available here:
 
-    php artisan serve
+    http://localhost:8000/
     
 ## Tests
 

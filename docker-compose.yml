@@ -6,7 +6,7 @@ services:
       - ./docker/mysql/data:/var/lib/mysql:cached
     environment:
       - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=clearooms
+      - MYSQL_DATABASE=scrabble
     ports:
       - "6306:3306"
 
@@ -16,8 +16,8 @@ services:
       - ./:/application:cached
     depends_on:
       - mysql
-      - mailhog
-      - redis
+      # - mailhog
+      # - redis
 
   php_xdebug:
     build:
@@ -28,8 +28,8 @@ services:
       - ./:/application:cached
     depends_on:
       - mysql
-      - mailhog
-      - redis
+      # - mailhog
+      # - redis
 
   nginx:
     image: nginx
@@ -50,14 +50,14 @@ services:
     working_dir: /application
     command: "tail -f /dev/null"
 
-  mailhog:
-    image: mailhog/mailhog
-    ports:
-      - "8025:8025"
+  # mailhog:
+  #   image: mailhog/mailhog
+  #   ports:
+  #     - "8025:8025"
 
-  redis:
-    image: redis
-    ports:
-      - "6379:6379"
+  # redis:
+  #   image: redis
+  #   ports:
+  #     - "6379:6379"
 
 version: '3'
